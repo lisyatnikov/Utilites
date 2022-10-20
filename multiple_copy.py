@@ -1,21 +1,43 @@
 import os
+import shutil
 
 os.chdir('c://2022-07-10 NRing')
 print(os.getcwd())
 print(os.listdir())
 print('\n')
 
+def get_tree():
+    count = 0
+    for dir in os.listdir():
+        # Checking that directory is a folder (not a hidden file .something)
+        if os.path.isdir(dir):
+            print('folder ', count, ': ', dir)
+            os.chdir(dir)
+            print(os.listdir())
+            print('\n')
+            os.chdir('..')
+            count = count + 1
+    count = None
 
-count = 0
-for dir in os.listdir():
-    # Checking that directory is a folder (not a hidden file .something)
-    if os.path.isdir(dir):
-        print('folder ', count, ': ', dir)
-        os.chdir(dir)
-        print(os.listdir())
-        print('\n')
-        os.chdir('..')
-        count = count + 1
-count = None
 
-os.mkdir('c://destination_path')
+def copying_from_multiple_folders():
+    for dir in os.listdir():
+        # Checking that directory is a folder (not a hidden file .something)
+        if os.path.isdir(dir):
+
+            os.chdir(dir)
+            print(os.getcwd())
+
+            for file in os.listdir():
+
+                if file.endswith('12.JPG'):
+                    print('copying file ', file)
+                    shutil.copy2(file, 'c://destination_path')
+
+
+
+            os.chdir('..')
+
+copying_from_multiple_folders()
+
+#    os.mkdir('c://destination_path')
