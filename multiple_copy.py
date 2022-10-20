@@ -38,6 +38,7 @@ def copying_from_multiple_folders():
 
             os.chdir('..')
 
-copying_from_multiple_folders()
+if not os.path.exists('c://destination_path'):
+    os.mkdir('c://destination_path')
 
-#    os.mkdir('c://destination_path')
+copying_from_multiple_folders()
