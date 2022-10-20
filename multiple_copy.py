@@ -1,11 +1,13 @@
 import os
 import shutil
+import unrar
 
 os.chdir('c://2022-07-10 NRing')
 print(os.getcwd())
 print(os.listdir())
 print('\n')
 
+#FIXME: Think about function interface!!!
 def get_tree():
     count = 0
     for dir in os.listdir():
@@ -37,6 +39,9 @@ def copying_from_multiple_folders():
 
 
             os.chdir('..')
+
+
+
 
 if not os.path.exists('c://destination_path'):
     os.mkdir('c://destination_path')
